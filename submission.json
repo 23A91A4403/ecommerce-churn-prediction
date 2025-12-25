@@ -1,0 +1,64 @@
+{
+  "student_info": {
+    "name": "A.N.D. Sripriya",
+    "email": "23a91a4403@aec.edu.in",
+    "student_id": "23A91A4403",
+    "submission_date": "2025-12-26"
+  },
+  "repository": {
+    "github_url": "https://github.com/23A91A4403/ecommerce-churn-prediction",
+    "commit_hash": "LATEST"
+  },
+  "deployment": {
+    "live_url": "https://ecommerce-churn-prediction-3nwr22bnvx9mwus6wcp562.streamlit.app/",
+    "platform": "Streamlit Community Cloud",
+    "deployment_date": "2025-12-25",
+    "status": "completed"
+  },
+  "dataset": {
+    "source": "UCI Online Retail Dataset (via Kaggle)",
+    "url": "https://www.kaggle.com/datasets/carrie1/ecommerce-data",
+    "original_rows": 541909,
+    "cleaned_rows": 392692,
+    "final_customers": 4372
+  },
+  "models": {
+    "models_trained": [
+      "Logistic Regression",
+      "Decision Tree",
+      "Random Forest",
+      "Gradient Boosting"
+    ],
+    "best_model": "Gradient Boosting",
+    "best_model_metrics": {
+      "roc_auc": 0.75,
+      "precision": 0.74,
+      "recall": 0.69,
+      "f1_score": 0.71
+    }
+  },
+  "completion_status": {
+    "phase1_business_understanding": true,
+    "phase2_data_acquisition": true,
+    "phase3_data_cleaning": true,
+    "phase4_feature_engineering": true,
+    "phase5_eda": true,
+    "phase6_modeling": true,
+    "phase7_evaluation": true,
+    "phase8_deployment": true,
+    "phase9_documentation": true,
+    "phase10_code_quality": true
+  },
+  "key_learnings": [
+    "Building an end-to-end machine learning pipeline",
+    "Handling real-world data quality issues",
+    "Feature engineering using RFM and behavioral metrics",
+    "Evaluating models using ROC-AUC and classification metrics",
+    "Deploying machine learning models using Streamlit Cloud"
+  ],
+  "challenges_faced": [
+    "Managing missing and invalid transactional data",
+    "Preventing data leakage during model training",
+    "Resolving dependency and deployment issues on cloud platforms"
+  ]
+}
