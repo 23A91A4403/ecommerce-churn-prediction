@@ -1,37 +1,27 @@
-import pandas as pd
 import joblib
+import pandas as pd
+import numpy as np
 
-MODEL_PATH = "models/gradient_boosting.pkl"
-SCALER_PATH = "models/scaler.pkl"
-
-FEATURE_COLUMNS = [
-    "Recency",
-    "Frequency",
-    "TotalSpent",
-    "AvgOrderValue",
-    "UniqueProducts",
-    "TotalItems",
-    "CustomerLifetimeDays"
-]
-
-# ---------------------------
-# Load model
-# ---------------------------
+# -----------------------------
+# Load model and scaler
+# -----------------------------
 def load_model():
-    return joblib.load(MODEL_PATH)
+    return joblib.load("../models/gradient_boosting.pkl")
 
-# ---------------------------
-# Load scaler
-# ---------------------------
 def load_scaler():
-    return joblib.load(SCALER_PATH)
+    return joblib.load("../models/scaler.pkl")
 
-# ---------------------------
+model = load_model()
+scaler = load_scaler()
+
+# -----------------------------
 # Preprocess input
-# ---------------------------
+# -----------------------------
 def preprocess_input(data):
     """
-    Accepts dict (single) or DataFrame (batch)
+    Accepts:
+    - dict (single customer)
+    - DataFrame (batch)
     Returns scaled DataFrame
     """
     if isinstance(data, dict):
@@ -39,32 +29,21 @@ def preprocess_input(data):
     elif isinstance(data, pd.DataFrame):
         df = data.copy()
     else:
-        raise ValueError("Input must be dict or DataFrame")
+        raise ValueError("Invalid input format")
 
-    # Ensure required columns
-    missing = set(FEATURE_COLUMNS) - set(df.columns)
-    if missing:
-        raise ValueError(f"Missing features: {missing}")
-
-    df = df[FEATURE_COLUMNS]
-
-    scaler = load_scaler()
     df_scaled = scaler.transform(df)
-
     return df_scaled
 
-# ---------------------------
+# -----------------------------
 # Predict churn label
-# ---------------------------
+# -----------------------------
 def predict(data):
-    model = load_model()
     X = preprocess_input(data)
     return model.predict(X)
 
-# ---------------------------
+# -----------------------------
 # Predict churn probability
-# ---------------------------
+# -----------------------------
 def predict_proba(data):
-    model = load_model()
     X = preprocess_input(data)
     return model.predict_proba(X)[:, 1]
