@@ -2,7 +2,8 @@ import streamlit as st
 import pandas as pd
 import joblib
 import plotly.express as px
-from app.predict import predict, predict_proba
+from predict import predict, predict_proba
+
 
 st.set_page_config(
     page_title="Customer Churn Prediction",
