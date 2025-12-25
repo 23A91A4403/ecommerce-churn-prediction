@@ -1,0 +1,16 @@
+{
+    "original_rows": 541909,
+    "rows_after_cleaning": 333234,
+    "rows_removed": 208675,
+    "retention_rate": 61.49,
+    "cleaning_steps": [
+        "Removed missing CustomerID",
+        "Removed cancelled invoices",
+        "Removed missing descriptions",
+        "Removed negative quantities and prices",
+        "Removed duplicates",
+        "Removed outliers using IQR",
+        "Converted data types",
+        "Added derived time features"
+    ]
+}

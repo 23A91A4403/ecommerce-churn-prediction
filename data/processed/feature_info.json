@@ -1,0 +1,16 @@
+{
+    "total_customers": 3242,
+    "total_features": 7,
+    "churn_rate": 0.42843923504009873,
+    "features": [
+        "CustomerID",
+        "Churn",
+        "Recency",
+        "Frequency",
+        "TotalSpent",
+        "AvgOrderValue",
+        "UniqueProducts",
+        "TotalItems",
+        "CustomerLifetimeDays"
+    ]
+}

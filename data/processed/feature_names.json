@@ -1,0 +1,9 @@
+[
+    "Recency",
+    "Frequency",
+    "TotalSpent",
+    "AvgOrderValue",
+    "UniqueProducts",
+    "TotalItems",
+    "CustomerLifetimeDays"
+]
