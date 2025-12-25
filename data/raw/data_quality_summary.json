@@ -1,0 +1,23 @@
+{
+    "total_rows": 541909,
+    "total_columns": 8,
+    "missing_values": {
+        "InvoiceNo": 0,
+        "StockCode": 0,
+        "Description": 1454,
+        "Quantity": 0,
+        "InvoiceDate": 0,
+        "UnitPrice": 0,
+        "CustomerID": 135080,
+        "Country": 0
+    },
+    "duplicate_rows": 5268,
+    "date_range": {
+        "start": "2010-12-01 08:26:00",
+        "end": "2011-12-09 12:50:00"
+    },
+    "negative_quantities": 10624,
+    "cancelled_invoices": 9288,
+    "missing_customer_ids": 135080,
+    "missing_customer_ids_percentage": 24.93
+}
