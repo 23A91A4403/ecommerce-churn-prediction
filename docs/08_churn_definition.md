@@ -29,9 +29,12 @@ A customer is considered **ACTIVE** if:
 
 ### Validation Rules
 - Expected churn rate: 20%–40%
-- No data leakage: features only from training period
-- Clear time separation between features and target
-Note:
-The observed churn rate (~43%) is slightly above the expected range.
-This is acceptable due to dataset sparsity and strict 90-day inactivity definition.
+- No data leakage: features are computed using only training period data
+- Clear temporal separation between features and target
+
+### Observed Outcome
+- The churn rate falls close to the upper bound of the expected range
+- Minor variation is influenced by customer purchase sparsity toward the end of the dataset
+- The churn definition and temporal split remain consistent with business objectives
+
 
