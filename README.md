@@ -85,45 +85,6 @@ cd ecommerce-churn-prediction
 
 ### URL: https://ecommerce-churn-prediction-3nwr22bnvx9mwus6wcp562.streamlit.app/
 
-#### Project Structure
-
-ecommerce-churn-prediction/
-├── data/
-│   ├── raw/
-│   └── processed/
-├── src/
-│   ├── 01_data_acquisition.py
-│   ├── 02_data_cleaning.py
-│   ├── 03_feature_engineering.py
-│   └── 04_model_preparation.py
-│       └── test_model.py
-├── notebooks/
-│   ├── 01_initial_data_exploration.ipynb
-│   ├── 02_data_validation.ipynb
-│   ├── 03_feature_eda.ipynb
-│   ├── 04_baseline_model.ipynb
-│   ├── 05_advanced_models.ipynb
-│   ├── 06_model_evaluation.ipynb
-│   └── 07_cross_validation.ipynb
-├── models/
-│   ├── baseline_metrics.json
-│   ├── best_model.pkl
-│   └── scaler.pkl
-├── app/
-│   ├── streamlit_app.py
-│   └── predict.py
-├── docs/
-│   ├── documentation files
-├── visualizations/
-│   ├── related images
-├── requirements.txt
-├── .gitignore
-├── README.md
-├── Dockerfile
-├── docker-compose.yml
-├── presentation.pdf
-└── submission.json
-
 ---
 
 ## Results
