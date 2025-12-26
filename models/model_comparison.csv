@@ -1,0 +1,6 @@
+Model,ROC_AUC
+Logistic Regression,0.7696678236925285
+Decision Tree,0.7168114564951812
+Random Forest,0.7141645174426495
+Gradient Boosting,0.7586001279838662
+Neural Network,0.7466889022474743
