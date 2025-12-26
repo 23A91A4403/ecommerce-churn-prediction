@@ -78,6 +78,7 @@ streamlit run app/streamlit_app.py
 ```bash
 git clone https://github.com/23A91A4403/ecommerce-churn-prediction.git
 cd ecommerce-churn-prediction
+```
 
 
 ### Live Application
