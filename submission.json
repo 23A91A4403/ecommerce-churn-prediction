@@ -7,7 +7,7 @@
   },
   "repository": {
     "github_url": "https://github.com/23A91A4403/ecommerce-churn-prediction",
-    "commit_hash": "LATEST"
+    "commit_hash": "b46fa43"
   },
   "deployment": {
     "live_url": "https://ecommerce-churn-prediction-3nwr22bnvx9mwus6wcp562.streamlit.app/",
