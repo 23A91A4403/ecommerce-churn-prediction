@@ -78,3 +78,65 @@ streamlit run app/streamlit_app.py
 ```bash
 git clone https://github.com/23A91A4403/ecommerce-churn-prediction.git
 cd ecommerce-churn-prediction
+
+
+### Live Application
+
+### URL:https://ecommerce-churn-prediction-3nwr22bnvx9mwus6wcp562.streamlit.app/
+
+#### Project Structure
+ecommerce-churn-prediction/
+├── data/
+│   ├── raw/
+│   └── processed/
+├── src/
+│   ├── 01_data_acquisition.py
+│   ├── 02_data_cleaning.py
+│   ├── 03_feature_engineering.py
+│   └── 04_model_preparation.py
+    └── test_model.py
+├── notebooks/
+│   ├── 01_initial_data_exploration.ipynb
+│   ├── 02_data_validation.ipynb
+│   ├── 03_feature_eda.ipynb
+│   ├── 04_baseline_model.ipynb
+│   ├── 05_advanced_models.ipynb
+│   ├── 06_model_evaluation.ipynb
+│   └── 07_cross_validation.ipynb
+├── models/
+│   ├── baseline_metrics.json
+│   ├── best_model.pkl
+│   └── scaler.pkl
+├── app/
+│   ├── streamlit_app.py
+│   └── predict.py
+├── docs/
+│   ├── [All documentation files]
+├── visualizations/
+│   ├── related images
+├── requirements.txt
+├── .gitignore
+├──  README.md
+├──  Dockerfile
+├── Docker-compose.yml
+├── presentation.pdf
+├── submission.json
+
+---
+
+## Results
+- Achieved a **ROC-AUC score of 0.75**, meeting the required performance threshold.
+- Precision and recall values demonstrate effective identification of churned customers.
+- Cross-validation results indicate stable and consistent model performance.
+- Feature importance analysis highlights recency, frequency, and monetary value as strong churn indicators.
+
+---
+
+## Business Impact
+- Enables early identification of customers likely to churn.
+- Supports targeted retention strategies such as personalized discounts and loyalty programs.
+- Helps marketing teams optimize campaign spending by focusing on high-risk customers.
+- Reduces revenue loss and improves customer lifetime value.
+- Provides a scalable and deployable solution suitable for real-world business use.
+
+---
