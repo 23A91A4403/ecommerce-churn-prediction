@@ -83,7 +83,10 @@ elif page == "Batch Prediction":
 
     if file is not None:
         try:
-            df = pd.read_csv(file)
+            try:
+                df = pd.read_csv(file, encoding="utf-8")
+            except UnicodeDecodeError:
+                df = pd.read_csv(file, encoding="latin1")
 
             probs = predict_proba(df)
             preds = predict(df)
@@ -102,6 +105,7 @@ elif page == "Batch Prediction":
             )
         except Exception as e:
             st.error(str(e))
+
 
 # -----------------------------
 # DOCUMENTATION
