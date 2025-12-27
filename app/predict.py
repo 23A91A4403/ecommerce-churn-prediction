@@ -1,6 +1,5 @@
 import joblib
 import pandas as pd
-import numpy as np
 import os
 
 # ---------------------------------
@@ -13,14 +12,21 @@ SCALER_PATH = os.path.join(BASE_DIR, "models", "scaler.pkl")
 # ---------------------------------
 # Load model and scaler
 # ---------------------------------
-def load_model():
-    return joblib.load(MODEL_PATH)
+model = joblib.load(MODEL_PATH)
+scaler = joblib.load(SCALER_PATH)
 
-def load_scaler():
-    return joblib.load(SCALER_PATH)
-
-model = load_model()
-scaler = load_scaler()
+# ---------------------------------
+# Feature list (MUST match training)
+# ---------------------------------
+FEATURE_COLUMNS = [
+    "recency",
+    "frequency",
+    "monetary",
+    "avg_order_value",
+    "unique_products",
+    "total_items",
+    "customer_lifetime"
+]
 
 # ---------------------------------
 # Preprocess input
@@ -32,6 +38,9 @@ def preprocess_input(data):
         df = data.copy()
     else:
         raise ValueError("Input must be dict or DataFrame")
+
+    # Ensure correct columns and order
+    df = df[FEATURE_COLUMNS]
 
     return scaler.transform(df)
 

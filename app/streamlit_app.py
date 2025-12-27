@@ -1,9 +1,7 @@
 import streamlit as st
 import pandas as pd
-import joblib
 import plotly.express as px
 from predict import predict, predict_proba
-
 
 st.set_page_config(
     page_title="Customer Churn Prediction",
@@ -41,7 +39,7 @@ elif page == "Single Prediction":
     with col1:
         recency = st.number_input("Days Since Last Purchase", 0, 500)
         frequency = st.number_input("Number of Purchases", 1, 200)
-        total_spent = st.number_input("Total Amount Spent (£)", 0.0)
+        monetary = st.number_input("Total Amount Spent (£)", 0.0)
         avg_order = st.number_input("Average Order Value (£)", 0.0)
 
     with col2:
@@ -51,13 +49,13 @@ elif page == "Single Prediction":
 
     if st.button("Predict Churn Risk"):
         input_data = {
-            "Recency": recency,
-            "Frequency": frequency,
-            "TotalSpent": total_spent,
-            "AvgOrderValue": avg_order,
-            "UniqueProducts": unique_products,
-            "TotalItems": total_items,
-            "CustomerLifetimeDays": lifetime
+            "recency": recency,
+            "frequency": frequency,
+            "monetary": monetary,
+            "avg_order_value": avg_order,
+            "unique_products": unique_products,
+            "total_items": total_items,
+            "customer_lifetime": lifetime
         }
 
         prob = predict_proba(input_data)[0]
@@ -85,6 +83,7 @@ elif page == "Batch Prediction":
     if file:
         try:
             df = pd.read_csv(file)
+
             probs = predict_proba(df)
             preds = predict(df)
 
@@ -109,7 +108,7 @@ elif page == "Model Dashboard":
     st.header("Model Performance Dashboard")
 
     try:
-        comparison = pd.read_csv("../models/model_comparison.csv")
+        comparison = pd.read_csv("models/model_comparison.csv")
         fig = px.bar(
             comparison,
             x="Model",
@@ -128,5 +127,5 @@ elif page == "Documentation":
     st.write("""
     - Input features are customer-level RFM and behavioral metrics
     - Model predicts churn risk for the next 90 days
-    - Use batch prediction for marketing campaigns
+    - Use batch prediction for targeted marketing campaigns
     """)
