@@ -16,7 +16,7 @@ model = joblib.load(MODEL_PATH)
 scaler = joblib.load(SCALER_PATH)
 
 # ---------------------------------
-# Feature list (MUST match training)
+# Feature list (MUST match training order)
 # ---------------------------------
 FEATURE_COLUMNS = [
     "recency",
@@ -39,10 +39,11 @@ def preprocess_input(data):
     else:
         raise ValueError("Input must be dict or DataFrame")
 
-    # Ensure correct columns and order
+    # Enforce correct column order
     df = df[FEATURE_COLUMNS]
 
-    return scaler.transform(df)
+    # IMPORTANT: pass numpy array to avoid feature-name mismatch
+    return scaler.transform(df.values)
 
 # ---------------------------------
 # Predict churn label
