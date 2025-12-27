@@ -17,7 +17,7 @@ scaler = joblib.load(SCALER_PATH)
 
 # ---------------------------------
 # EXACT features used during training
-# (DO NOT change order or names)
+# (order and names MUST match)
 # ---------------------------------
 FEATURE_COLUMNS = [
     "CustomerID",
@@ -41,17 +41,15 @@ def preprocess_input(data):
     else:
         raise ValueError("Input must be dict or DataFrame")
 
-    # If CustomerID is missing, add dummy value
+    # Add CustomerID if missing
     if "CustomerID" not in df.columns:
         df["CustomerID"] = 0
 
-    # Ensure correct column order
+    # Enforce correct columns and order
     df = df[FEATURE_COLUMNS]
 
-    # IMPORTANT: use NumPy array to avoid sklearn feature-name issues
-    X = scaler.transform(df.to_numpy())
-
-    return X
+    # Use numpy array to avoid sklearn feature-name issues
+    return scaler.transform(df.to_numpy())
 
 # ---------------------------------
 # Predict churn label
